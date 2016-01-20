@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body>
+    <div ng-init="courses=[{num:101, name:'AngularJS', instructor:'Kani'},
+                           {num:102, name:'Jquery', instructor: 'Jani'},
+                           {num:103, name:'KnockoutJS', instructor: 'Dave'}
+         ]">
+        <table>
+            <tr>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Instructor</th>
+            </tr>
+            <tr ng-repeat="course in courses">
+                <td>{{course.num}}</td>
+                <td>{{course.name}}</td>
+                <td>{{course.instructor}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

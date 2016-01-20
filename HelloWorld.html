@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body>
+    {{3+2}}
+    <div ng-init="firstName='John'">
+        <p>Name: <input type="text" ng-model="firstName" /></p>
+        <p>You wrote: {{firstName}}</p>
+    </div>
+
+    <div ng-init="quantity=1, price=5">
+        Quantity: <input type="number" ng-model="quantity" />
+        Costs: <input type="number" ng-model="price" />
+        Total in dollar: {{quantity * price}}
+    </div>
+
+    <div ng-init="names=['Jani', 'Hege', 'Mai']">
+        <ul>
+            <li ng-repeat="name in names">
+                {{name}}
+            </li>
+        </ul>
+    </div>
+
+    <div ng-init="countryNames=[
+            {name: 'Jani', country: 'Norway'},
+            {name: 'Hege', country: 'Sweden'},
+            {name: 'Kai', country: 'Denmark'} 
+         ]">
+        <ul>
+            <li ng-repeat="cName in countryNames">
+                {{cName.name + ', ' + cName.country}}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
