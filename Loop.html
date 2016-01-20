@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body>
+    <div ng-init="names=['Dave', 'Visual', 'Kani']">
+        <h3>Loop Output</h3>
+
+        <ul>
+            <li>{{names[0]}}</li>
+            <li>{{names[1]}}</li>
+            <li>{{names[2]}}</li>
+            <li ng-repeat="name in names">{{name}}</li>
+        </ul>
+    </div>
+</body>
+</html>

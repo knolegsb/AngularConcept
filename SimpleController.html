@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="ngApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="helloController1">
+        {{helloMessage}}
+    </div>
+    <dvi ng-controller="helloController2">
+        {{helloMessage}}
+    </dvi>
+    <script>
+        var ngApp = angular.module("ngApp", []);
+        ngApp.controller("helloController1", function ($scope) {
+            $scope.helloMessage = 'Hello';
+        });
+        //function helloController1($scope){
+        //    $scope.helloMessage = 'Hello';
+        //}
+
+        ngApp.controller("helloController2", function ($scope) {
+            $scope.helloMessage = 'Nice to meet you';
+        });
+    </script>
+</body>
+</html>
