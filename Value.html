@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script>        
+        // ready for module: ng-app
+        var myApp = angular.module("myApp", []);
+        // ready for controller: ng-controller
+        myApp.controller('courseController', function ($scope, courses, title) {
+            $scope.courses = courses;
+            $scope.title = title;
+        });
+        // data injection by parameters: angular data type creation
+        //myApp.factory("ajaxServiceData", function () {
+        //    return {
+        //        courses : [ // object
+        //            { num: 101, name: 'AngularJS', instructor: 'Kani' },
+        //            { num: 102, name: 'Jquery', instructor: 'Jani' },
+        //            { num: 103, name: 'KnockoutJS', instructor: 'Dave' }
+        //        ]
+        //    };
+        //});
+
+        // static data injection by value()
+        myApp.value("courses", [
+            { num: 101, name: 'AngularJS', instructor: 'Kani' },
+            { num: 102, name: 'Jquery', instructor: 'Jani' },
+            { num: 103, name: 'KnockoutJS', instructor: 'Dave' }
+        ]);
+        myApp.value("title", "AngularJS Basic");
+    </script>
+</head>
+<body>
+    <div ng-controller="courseController">
+        <h1>{{title}}</h1>
+        <table>
+            <tr>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Instructor</th>
+            </tr>
+            <tr ng-repeat="course in courses">
+                <td>{{course.num}}</td>
+                <td>{{course.name}}</td>
+                <td>{{course.instructor}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
