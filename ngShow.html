@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html ng-app="ngApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body ng-controller="ngCtrl">
+
+    <h1>NG-SHOW</h1>
+    <input type="checkbox" name="clickShow" ng-model="isShow"/>
+    {{isShow}}
+    <div ng-show="isShow">
+        <p>Show/Hide area</p>
+    </div>
+    <hr />
+    <button ng-click="btnClick()">Show/Hide click</button>
+    <div ng-show="isBtnClick">
+        <p>Show/Hide area</p>
+    </div>
+    <script>
+        window.app = angular.module('ngApp', []);
+        window.app.controller('ngCtrl', function ($scope) {
+            //var show = $scope.isShow;
+            //if(show == true)
+            //{
+
+            //}
+
+            $scope.isBtnClick = false;
+            $scope.btnClick = function () {
+                $scope.isBtnClick = !$scope.isBtnClick; // true <-> false toggle
+            };
+        });
+    </script>
+</body>
+</html>
