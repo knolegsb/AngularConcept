@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body ng-app="ngApp">
+    <div ng-controller="Ctrl">
+        <h1>Click Event</h1>
+        <div ng-click="divClick()">
+            div tag area click
+        </div>
+        <p>{{divClickCount}} times clicked!</p>
+        <button ng-click="btnClick()">Click!</button>
+        <p>{{btnClickCount}} times clicked!</p>
+    </div>
+
+    <script>
+        var app = angular.module("ngApp", []);
+
+        app.controller("Ctrl", function ($scope) {
+            $scope.divClickCount = 0;
+            $scope.divClick = function () {
+                $scope.divClickCount++
+            };
+            $scope.btnClickCount = 0;
+            $scope.btnClick = function () {
+                $scope.btnClickCount++
+            };
+        });
+    </script>
+</body>
+</html>

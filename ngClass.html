@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <style>
+        .number-error{
+            color:red;
+        }
+    </style>
+</head>
+<body ng-app="ngApp">
+
+    <div ng-controller="Ctrl">
+        <h1>ngClass Directive</h1>
+        <label>Input Integer From 1 To 100 : </label><br /><br />
+        <input type="text" ng-model="txtNumber" /><br />
+        <span ng-class="{'number-error': isNumberError}">{{validationMessage()}}</span>
+    </div>
+
+
+
+    <script>
+        window.app = angular.module('ngApp', []);
+        window.app.controller('Ctrl', function ($scope) {
+            function initScopeData() {
+                //$scope.txtNumber = 0; // initializing
+                $scope.isNumberError = false;
+            }
+
+            initScopeData();
+
+            $scope.validationMessage = function () {
+                var intNum = parseInt($scope.txtNumber, 10);
+
+                if (isNaN(intNum)) {
+                    $scope.isNumberError = true;
+                    return "Please, input number only";
+                }
+
+                if (intNum > 100 || intNum < 0) {
+                    $scope.isNumberError = true;
+                    return "Please, input number only from 1 to 100";
+                }
+                $scope.isNumberError = false;
+                return "Alright!";
+            };
+        });
+    </script>
+</body>
+</html>
