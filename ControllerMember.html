@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html ng-app="ngApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body ng-controller="ngCtrl">
+
+    <h3>{{sayMessage}}</h3>
+    <input type="text" name="txtMessage" ng-model="sayMessage" /><br />
+    <strong ng-bind="sayMessage"></strong>
+    <ul>
+        <li ng-repeat="name in names">{{name}}</li>
+    </ul>
+
+    <ul>
+        <li>{{objData.text}}</li>
+        <li>{{objData.currentDate}}</li>
+        <li>{{objData.hour}}</li>
+        <li>{{objData.location.url}}</li>
+    </ul>
+    <img alt="{{objData.location.url}}" src="{{objData.location.imageUrl}}"/>
+    <script>
+        window.app = angular.module("ngApp", [/*dependency*/]);
+
+        window.app.controller('ngCtrl', function ($scope) {
+            // field/property/member variable
+            $scope.sayMessage = 'Hello';
+            // array
+            $scope.names = ['Kani', 'Hani', 'Mani', 'Moni'];
+            // object literal
+            $scope.objData = {
+                text: "AngularJS lectures",
+                currentDate: new Date(),
+                hour: 10,
+                location: {
+                    url: "http://yahoo.com",
+                    city: "Los Angeles",
+                    country: "USA",
+                    imageUrl: "http://creativebits.org/files/500px-Apple_Computer_Logo.svg_.png"
+                }
+            };
+        });
+    </script>
+</body>
+</html>
