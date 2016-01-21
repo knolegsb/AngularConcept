@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body ng-app="myModule" ng-controller="myController">
+
+    <label>Factory Method Call: </label> {{callSayHello()}} <br />
+    <label>Factory Method Call: </label> <button ng-click="callPerformFactory()">Call</button> {{ factoryPropertyValue() }}
+
+    <script>
+        window.app = angular.module("myModule", []);
+        window.app.controller('myController', function ($scope, myFactory) {
+            $scope.callSayHello = function () {
+                return myFactory.sayHello();
+            };
+            $scope.callPerformFactory = function () {
+                myFactory.performFactory();
+            };
+            $scope.factoryPropertyValue = function () {
+                return myFactory.factoryProperty;
+            };
+        });
+
+        window.app.factory('myFactory', function () {
+
+            var initialValue = 0; // private field
+
+            return {
+                sayHello: function () {
+                    return "Hello";
+                },
+                factoryProperty: initialValue, // public property
+                performFactory: function () {
+                    //this.initialValue++;
+                    this.factoryProperty++;
+                }
+            };
+        });
+    </script>
+</body>
+</html>
