@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <style>
+        .odd{
+            color: red;
+        }
+        .even{
+            color: blue;
+        }
+    </style>
+</head>
+<body ng-app="ngApp">
+
+    <ol ng-init="names=['Kani','Hani','Mani','Cuv']">
+        <li ng-repeat="n in names">
+        <span ng-class-odd="'odd'" ng-class-even="'even'">{{ n }}</span>
+        </li>
+    </ol>
+    <ul ng-controller="myCtrl">
+        <li data-ng-repeat="s in sites" ng-class-odd="'odd'" ng-class-even="'even'">{{s}}</li>
+    </ul>
+    <script>
+        window.app = angular.module('ngApp', []);
+        window.app.controller('myCtrl', function ($scope) {
+            $scope.sites = ["Google", "Yahoo", "Facebook", "Twitter"];
+        });
+    </script>
+</body>
+</html>
