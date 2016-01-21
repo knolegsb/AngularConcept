@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="bookBrowserApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/bookBrowserApp.js"></script>
+</head>
+<body ng-controller="bookListCtrl">
+    <div class="container">
+        <h1>{{txtTitle}}</h1>
+        <div class="row">
+            <input type="text" ng-model="search.title" class="form-control" />
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6" >
+                <ul>
+                    <li ng-repeat="book in bookImages | filter:search">
+                        <h2>{{book.title}}</h2>
+                        <img ng-src="{{book.photo}}" />
+                    </li>
+                </ul>
+                
+        </div>
+    </div>
+</body>
+</html>
