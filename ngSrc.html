@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body ng-controller="my">
+
+    <div>
+        <img ng-src="{{profiles.img}}" title="{{profiles.name}}" />
+    </div>
+
+    <script>
+        window.app = angular.module('myApp', [])
+        .controller('my', function ($scope) {
+            $scope.profiles = {
+                name: "Kani",
+                img: "http://vanimg.s3.amazonaws.com/good-logos-1.jpg"
+            };
+        });
+    </script>
+</body>
+</html>
