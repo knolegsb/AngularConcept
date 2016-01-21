@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+
+    <h1>{{title}}</h1>
+    {{userInfo.type}}
+    <img ng-src="{{userInfo.avatar_url}}" width="300" />
+
+
+
+    <script>
+        angular.module('myApp',[]).controller('myCtrl',function ($scope, $http) {
+            $scope.title = "Receiving JSON through $http.get method";
+            $http.get('https://api.github.com/users/visualacademy')
+                .then(function (result) {
+                    // when succeed
+                    $scope.userInfo = result.data;
+                }, function (result) {
+                    //when fail
+                    $scope.errorMessage = "can not bring up data";
+                });
+        });
+    </script>
+</body>
+</html>
