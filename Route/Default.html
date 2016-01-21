@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html  ng-app="ngRouteApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.min.js"></script>
+</head>
+<body>
+    <div>
+        <!--<a href="#">Main</a>-->
+        <a href="#Create">Input</a>
+        <a href="#List">Output</a>
+    </div>
+    <div>
+        <div ng-view></div>
+    </div>
+
+
+    <script>
+        var ngRouteApp = angular.module('ngRouteApp', ['ngRoute']);
+
+        ngRouteApp.config(['$routeProvider', function ($routeProvider) {
+            $routeProvider
+                .when('/Create', { templateUrl: 'Create.html', controller: 'Create' })
+                .when('/List', { templateUrl: 'List.html', controller: 'List' })
+                .otherwise({ redirectTo: '/List' });
+        }]);
+
+        ngRouteApp.controller('List', function ($scope) {
+            $scope.title = 'Here is the output page';
+        });
+
+        ngRouteApp.controller('Create', function ($scope) {
+            $scope.title = 'Here is the input page';
+        });
+        
+    </script>
+</body>
+</html>
