@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body ng-app="ngEvent" ng-controller="ngEventController">
+    <h3> Name Input and Output </h3>
+
+    <form method="post" name="newName">
+        Name: <br />
+        <input type="text" name="name" value="" ng-model="txtName" required /><br />
+        City: <br />
+        <input type="text" name="city" value="" ng-model="inputData.city" required /><br />
+        <button ng-click="addName()" ng-disabled="newName.$invalid">Name Add</button>
+    </form>
+
+    <script>
+        window.app = angular.module('ngEvent', []);
+        window.app.controller('ngEventController', function ($scope) {
+            $scope.names = [
+                { name: 'Kani', city: 'Los Angeles' },
+                { name: 'Mani', city: 'San Jose' },
+                { name: 'Moni', city: 'San Francisco' },
+            ];
+
+            $scope.addName = function () {
+                if ($scope.newName.$valid) {
+                    window.alert('Validation passed');
+                    var name = $scope.txtName;
+                    var city = $scope.inputData.city;
+                    $scope.names.push({ name: name, city: $scope.inputData.city });
+                }
+            };
+        });
+    </script>
+</body>
+</html>
