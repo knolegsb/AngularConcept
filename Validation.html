@@ -16,6 +16,10 @@
         <button ng-click="addName()" ng-disabled="newName.$invalid">Name Add</button>
     </form>
 
+    <ul>
+        <li ng-repeat="n in names">{{ n.name + ":" + n.city}}</li>
+    </ul>
+
     <script>
         window.app = angular.module('ngEvent', []);
         window.app.controller('ngEventController', function ($scope) {
