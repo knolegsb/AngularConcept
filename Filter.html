@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html ng-app="">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body>
+    <div ng-init="names=[
+         {name: 'Google', site: 'http://www.google.com'},
+         {name: 'Yahoo', site: 'http://www.yahoo.com'},
+         {name: 'Facebook', site: 'http://www.facebook.com'},
+         {name: 'Twitter', site: 'http://www.twitter.com'}
+         ]">
+
+        Search : <input type="text" name="search" id="search" ng-model="search" />
+        <ul>
+            <li ng-repeat="n in names | filter:search | orderBy: 'site'">{{n.name | lowercase}} - {{n.site | uppercase}}</li>
+        </ul>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+</html>

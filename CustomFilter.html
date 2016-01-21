@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body ng-app="ngApp" ng-controller="ngFilterCtrl">
+    <ul>
+        <li ng-repeat="n in names">{{n.name}}, {{n.age}} ({{n.age | ageFilter}})</li>
+    </ul>
+
+    <script>
+        window.app = angular.module('ngApp', []);
+        window.app.controller('ngFilterCtrl', function ($scope) {
+            $scope.names = [
+                { name: 'Kani', age: 40 },
+                { name: 'Mani', age: 25 },
+                { name: 'Moni', age: 36 },
+                { name: 'Suni', age: 27 },
+            ];
+        });
+        // custom filter
+        window.app.filter('ageFilter', function () {
+            return function (age) {
+                var r = "";
+                if (age >= 40) {
+                    r = "Old";
+                }
+                else if (age >= 20 && age < 30) {
+                    r = "Well";
+                }
+                else {
+                    r = "Young";
+                }
+                return r;
+            }
+        });
+    </script>
+</body>
+</html>
